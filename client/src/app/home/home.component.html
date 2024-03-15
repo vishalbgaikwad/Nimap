@@ -1,0 +1,42 @@
+<div>
+  Categories
+  <section>
+    <button type="button" (click)="toggleAddCategory()">Add Category</button>
+
+    <div *ngIf="showAddCategory">
+      <input
+        type="text"
+        [(ngModel)]="newCategoryName"
+        placeholder="Enter category name"
+      />
+      <button type="button" (click)="addCategory()">Submit</button>
+    </div>
+    <article *ngFor="let category of categories">
+      <div>
+        <ng-container
+          *ngIf="editingCategoryId !== category.categoryId; else editMode"
+        >
+          <span class="name">{{ category.categoryName }}</span>
+          <a
+            routerLink="/category/{{ category.categoryId }}"
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            >view products</a
+          >
+          <button type="button" (click)="toggleEdit(category.categoryId)">
+            Update
+          </button>
+          <button type="button" (click)="deleteCategory(category.categoryId)">
+            Delete
+          </button>
+        </ng-container>
+        <ng-template #editMode>
+          <input type="text" [(ngModel)]="category.categoryName" />
+          <button type="button" (click)="updateCategory(category)">
+            Submit
+          </button>
+        </ng-template>
+      </div>
+    </article>
+  </section>
+</div>

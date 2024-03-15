@@ -1,0 +1,36 @@
+<div>
+    Products
+    <section>
+        <button type="button" (click)="toggleAddProduct()">Add Product</button>
+
+        <div *ngIf="showAddProduct">
+            <input type="text" [(ngModel)]="newProductName" placeholder="Enter product name" />
+            <button type="button" (click)="addProduct()">Submit</button>
+        </div>
+        <hr>
+        <section>
+            <article *ngFor="let product of products">
+                <div class="card">
+                    <ng-container *ngIf="editingProductId !== product.productId; else editMode">
+                        <h4 class="name">{{ product.productName }}</h4>
+                        <p class="category">Category ID: {{ product.categoryId }}</p>
+                       <section class="buttons">
+                        <button type="button" (click)="toggleEdit(product.productId)">
+                            Update
+                        </button>
+                        <button type="button" (click)="deleteProduct(product.productId)">
+                            Delete
+                        </button>
+                       </section>
+                    </ng-container>
+                    <ng-template #editMode>
+                        <input type="text" [(ngModel)]="newProductName" />
+                        <button type="button" (click)="updateProduct(product)">
+                            Submit
+                        </button>
+                    </ng-template>
+                </div>
+            </article>
+        </section>
+    </section>
+</div>

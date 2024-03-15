@@ -1,0 +1,170 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "CRUD",
+    "dateExported": "2024-03-13T09:10:14.774Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "6f4cba43-88ef-477e-bbef-347956c47c92",
+            "name": "Category",
+            "containerId": "",
+            "created": "2024-03-13T08:31:55.327Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "0d87dd69-c37b-4189-afc6-2354aa97e16d",
+            "name": "Product",
+            "containerId": "",
+            "created": "2024-03-13T08:54:48.160Z",
+            "sortNum": 20000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "84a11587-f3bc-46f0-a03d-8cdaf9095329",
+            "colId": "dd4659d5-a00a-4058-b40b-eb7e3c3ef4e7",
+            "containerId": "6f4cba43-88ef-477e-bbef-347956c47c92",
+            "name": "Get category",
+            "url": "http://localhost:1234/category?page=1",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-03-13T08:32:14.552Z",
+            "modified": "2024-03-13T08:55:13.226Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "1",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "74d733c4-3aa5-469b-bafe-9ac1553edd93",
+            "colId": "dd4659d5-a00a-4058-b40b-eb7e3c3ef4e7",
+            "containerId": "0d87dd69-c37b-4189-afc6-2354aa97e16d",
+            "name": "Get products",
+            "url": "http://localhost:1234/product?page=1",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-03-13T08:54:48.160Z",
+            "modified": "2024-03-13T08:54:48.160Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "1",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "9f4187da-a638-476e-8c84-bf99494da45a",
+            "colId": "dd4659d5-a00a-4058-b40b-eb7e3c3ef4e7",
+            "containerId": "6f4cba43-88ef-477e-bbef-347956c47c92",
+            "name": "Create Category",
+            "url": "http://localhost:1234/category",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-03-13T08:32:36.639Z",
+            "modified": "2024-03-13T09:09:50.440Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"categoryName\" :\"Electronics\"\n}",
+                "form": []
+            },
+            "reqType": "post",
+            "tests": []
+        },
+        {
+            "_id": "4219d9d8-dcc9-41e6-80a3-e6ad7ae90acf",
+            "colId": "dd4659d5-a00a-4058-b40b-eb7e3c3ef4e7",
+            "containerId": "0d87dd69-c37b-4189-afc6-2354aa97e16d",
+            "name": "Create Product",
+            "url": "http://localhost:1234/product",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-03-13T08:54:48.162Z",
+            "modified": "2024-03-13T08:54:48.161Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"categoryId\":1,\n  \"productName\" :\"new Map()\"\n}",
+                "form": []
+            },
+            "reqType": "post",
+            "tests": []
+        },
+        {
+            "_id": "961154d1-28b6-478f-93c3-a2d201573fa4",
+            "colId": "dd4659d5-a00a-4058-b40b-eb7e3c3ef4e7",
+            "containerId": "6f4cba43-88ef-477e-bbef-347956c47c92",
+            "name": "Update Category",
+            "url": "http://localhost:1234/product",
+            "method": "PATCH",
+            "sortNum": 30000,
+            "created": "2024-03-13T08:43:07.667Z",
+            "modified": "2024-03-13T08:46:19.691Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"productId\":2,\n  \"productName\" :\"Shiny watch 2 updated\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "3997215c-263a-4575-85a5-d908015c78c5",
+            "colId": "dd4659d5-a00a-4058-b40b-eb7e3c3ef4e7",
+            "containerId": "0d87dd69-c37b-4189-afc6-2354aa97e16d",
+            "name": "Update Product",
+            "url": "http://localhost:1234/product",
+            "method": "PATCH",
+            "sortNum": 30000,
+            "created": "2024-03-13T08:54:48.163Z",
+            "modified": "2024-03-13T08:54:48.161Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"productId\":2,\n  \"productName\" :\"Shiny watch 2 updated\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "e09ea340-b1fd-4265-9af8-99a7dc67fcec",
+            "colId": "dd4659d5-a00a-4058-b40b-eb7e3c3ef4e7",
+            "containerId": "6f4cba43-88ef-477e-bbef-347956c47c92",
+            "name": "Delete Category",
+            "url": "http://localhost:1234/category/3",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-03-13T08:46:46.021Z",
+            "modified": "2024-03-13T09:09:27.406Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "02108b93-ac8f-4c10-9ba2-1f1b378cc572",
+            "colId": "dd4659d5-a00a-4058-b40b-eb7e3c3ef4e7",
+            "containerId": "0d87dd69-c37b-4189-afc6-2354aa97e16d",
+            "name": "Delete product",
+            "url": "http://localhost:1234/product/2",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-03-13T08:54:48.164Z",
+            "modified": "2024-03-13T08:54:48.161Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
