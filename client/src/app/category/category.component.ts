@@ -17,26 +17,34 @@ export class CategoryComponent implements OnInit {
   products: {
     productId: number,
     productName: string,
-    categoryId: number
+    categoryId: number,
+    categoryName: string,
   }[] = []
   showAddProduct: boolean = false;
   newProductName: string = '';
   editingProductId: number | null = null;
   catId: number = 0
 
+  isNext: boolean = false
+  page: number = 1
   constructor(private activatedRoute: ActivatedRoute, private appService: AppService) { }
 
   ngOnInit(): void {
+    this.activatedRoute.queryParams.subscribe(data => {
+      this.page = data["page"] || 1
+    })
     this.activatedRoute.params.subscribe(
       (params) => {
         this.catId = params['categoryId']
-        this.getProducts(params['categoryId'])
+        this.getProducts(params['categoryId'], this.page)
       }
     );
+
   }
 
-  getProducts(catId: number) {
-    this.appService.getProductsByCategory(catId).subscribe((response) => {
+  getProducts(catId: number, page: number) {
+    this.appService.getProductsByCategory(catId, { params: { page } }).subscribe((response) => {
+      this.isNext = response.isNext
       this.products = response.data
     })
   }
@@ -48,8 +56,8 @@ export class CategoryComponent implements OnInit {
       error: () => alert("Cannot add product"),
       next: () => {
         this.newProductName = ""
-        this.showAddProduct = false 
-        this.getProducts(this.catId)
+        this.showAddProduct = false
+        this.getProducts(this.catId, this.page)
       }
     })
   }
@@ -59,17 +67,25 @@ export class CategoryComponent implements OnInit {
 
   deleteProduct(id: number): void {
     this.appService.deleteProduct(id).subscribe({
-      next: () => this.getProducts(this.catId),
+      next: () => this.getProducts(this.catId, this.page),
       error: () => alert("Cannot delete product")
     })
   }
 
   updateProduct(product: any) {
-    console.log(this.newProductName)
     this.appService.updateProduct(product.productId, this.newProductName).subscribe(data => {
       this.newProductName = ""
       this.editingProductId = 0
-      this.getProducts(this.catId)
+      this.getProducts(this.catId, this.page)
     })
+  }
+
+  nextPage() {
+    this.page += 1
+    this.getProducts(this.catId, this.page)
+  }
+  prevPage() {
+    this.page -= 1
+    this.getProducts(this.catId, this.page)
   }
 }

@@ -2,3 +2,11 @@
 *{
     font-family: "DM Sans", sans-serif;
 }
+.row{
+display: flex;
+gap:.5rem
+}
+
+button:disabled{
+    opacity: .6;
+}
